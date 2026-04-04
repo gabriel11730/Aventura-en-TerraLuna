@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatosHistoria" load_steps=3 format=3 uid="uid://de18wujqcik6q"]
+
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="1_ajpsb"]
+[ext_resource type="Texture2D" uid="uid://drwpihp32n2uw" path="res://Recursos/Backgrounds/ImagenesCinematicas/IMG_03.png" id="1_c6fxc"]
+
+[resource]
+script = ExtResource("1_ajpsb")
+cinematic_title = "Conversacion_Mago_Villano"
+texts = Array[String](["Malvado caballero, antes de destruir este lugar permitame mencionarle un objeto cuyo valor le convertira en el hombre mas poderoso del mundo", "Dicho objeto se encuentra bajo las montañas que nos rodean, encuentralo y no necesitaras cavar bajo esta  tierra.", "Villano: Si lo que dices es cierto aceptare vuestra oferta, con una condicion. ", "Villano: Que sea un hombre joven y sin experiencia quien encuentre dicho objeto y lo traiga frente a mi."])
+background_texture = Array[Texture2D]([ExtResource("1_c6fxc")])
+ruta_siguiente_escena = ""
+volver_al_mundo = true
+metadata/_custom_type_script = "uid://bt54tg87asjos"

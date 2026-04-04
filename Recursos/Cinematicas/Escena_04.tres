@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatosHistoria" load_steps=3 format=3 uid="uid://u87adxs553uk"]
+
+[ext_resource type="Texture2D" uid="uid://c6nped344cyvy" path="res://Recursos/Backgrounds/ImagenesCinematicas/IMG_05.png" id="1_01rbf"]
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="1_8jg62"]
+
+[resource]
+script = ExtResource("1_8jg62")
+cinematic_title = "Conversacion_Mago_Edward"
+texts = Array[String](["Es nuestra unica oportunidad"])
+background_texture = Array[Texture2D]([ExtResource("1_01rbf")])
+ruta_siguiente_escena = ""
+volver_al_mundo = true
+metadata/_custom_type_script = "uid://bt54tg87asjos"

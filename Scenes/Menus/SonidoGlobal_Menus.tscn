@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8ujbvd2t1m3l"]
+
+[ext_resource type="Script" uid="uid://cqa53sjy4yq8c" path="res://Scripts/Globales/SonidoGlobalMenus.gd" id="1_o31sm"]
+[ext_resource type="AudioStream" uid="uid://c8pj6q0rrj7d4" path="res://Recursos/Musica/music_history.mp3" id="2_1dtn3"]
+[ext_resource type="AudioStream" uid="uid://c3ylhkmhlac0m" path="res://Recursos/Musica/GameOver.wav" id="3_1dtn3"]
+
+[node name="SonidoGlobal_Menus" type="Node"]
+script = ExtResource("1_o31sm")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2_1dtn3")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1dtn3")
+volume_db = -5.0

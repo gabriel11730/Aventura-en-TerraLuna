@@ -1,0 +1,33 @@
+# Archivos específicos de Godot
+.godot/                # Carpeta de importación y caché (Muy importante)
+*.tmp                  # Archivos temporales
+
+
+# Exportaciones (Si creas carpetas para tus builds)
+export/
+executable/
+*.exe
+*.zip
+*.apk
+*.ipa
+
+# Ignorar archivos de caché y firmas de importación local
+*.cache
+*.md5
+*.mp3str
+*.oggvorbisstr
+*.sample
+
+# Configuraciones de usuario de editores
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales de sincronización (Google Drive / OneDrive)
+.tmp.driveupload/

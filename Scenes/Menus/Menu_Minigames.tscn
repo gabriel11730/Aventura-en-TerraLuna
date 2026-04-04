@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy2ub2obue2ns"]
+
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="1_7876j"]
+[ext_resource type="Script" uid="uid://2i03fibqegt6" path="res://Scripts/Menus/MenuMinigames.gd" id="2_7876j"]
+[ext_resource type="Texture2D" uid="uid://daffp5gw2lsko" path="res://Recursos/Backgrounds/BackgroundMenuPrincipal_2.png" id="3_qwcse"]
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="3_xfg1q"]
+[ext_resource type="Resource" uid="uid://bpyncw6blnlsk" path="res://Recursos/Cinematicas/MiniGames.tres" id="4_2pk8r"]
+
+[node name="Menu_Minigames" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7876j")
+script = ExtResource("2_7876j")
+Datos_Historia = Array[ExtResource("3_xfg1q")]([ExtResource("4_2pk8r")])
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qwcse")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="MinigamesContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = -100.0
+offset_right = 318.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Level1" type="Button" parent="MinigamesContainer"]
+layout_mode = 2
+text = " Level Otoño "
+
+[node name="Level2" type="Button" parent="MinigamesContainer"]
+layout_mode = 2
+text = " Level Invierno"
+
+[node name="Level3" type="Button" parent="MinigamesContainer"]
+layout_mode = 2
+text = " Level Bosque "
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.5
+offset_top = -230.0
+offset_right = 193.5
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="MejoresPuntuaciones" type="Button" parent="Options"]
+layout_mode = 2
+text = "Mejores Puntuaciones"
+
+[node name="Instrucciones" type="Button" parent="Options"]
+layout_mode = 2
+text = "Instrucciones"
+
+[node name="Volver" type="Button" parent="Options"]
+layout_mode = 2
+text = "Volver"
+
+[connection signal="pressed" from="MinigamesContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MinigamesContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="MinigamesContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Options/MejoresPuntuaciones" to="." method="_on_mejores_puntuaciones_pressed"]
+[connection signal="pressed" from="Options/Instrucciones" to="." method="_on_instrucciones_pressed"]
+[connection signal="pressed" from="Options/Volver" to="." method="_on_volver_pressed"]

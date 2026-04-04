@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj23t56cf7uue"]
+
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="1_i4eho"]
+[ext_resource type="Script" uid="uid://byb4xcq6ajxos" path="res://Scripts/Menus/MenuClasificaciones.gd" id="2_i4eho"]
+[ext_resource type="Texture2D" uid="uid://daffp5gw2lsko" path="res://Recursos/Backgrounds/BackgroundMenuPrincipal_2.png" id="3_otvks"]
+
+[node name="Menu_Clasificaciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i4eho")
+script = ExtResource("2_i4eho")
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_otvks")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="CreditosContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -333.0
+offset_top = 80.0
+offset_right = 333.0
+offset_bottom = 125.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="CreditosLabel" type="Label" parent="CreditosContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Que Puntuaciones deseas ver?"
+horizontal_alignment = 1
+
+[node name="CreditosContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -333.0
+offset_top = 157.0
+offset_right = 333.0
+offset_bottom = 202.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="CreditosLabel" type="Label" parent="CreditosContainer2"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Minijuegos"
+horizontal_alignment = 1
+
+[node name="VolverContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -110.0
+offset_right = 110.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="VolverButton" type="Button" parent="VolverContainer"]
+layout_mode = 2
+text = " Volver "
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -25.0
+offset_right = 84.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PuntuacionMG1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Lvl 1 "
+
+[node name="PuntuacionMG2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Lvl 2 "
+
+[node name="PuntuacionMG3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Lvl 3 "
+
+[connection signal="pressed" from="VolverContainer/VolverButton" to="." method="_on_volver_button_pressed"]

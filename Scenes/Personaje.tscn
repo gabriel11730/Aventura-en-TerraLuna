@@ -1,0 +1,117 @@
+[gd_scene load_steps=18 format=3 uid="uid://cklady6kl6fit"]
+
+[ext_resource type="Script" uid="uid://ywda0m6jxqwd" path="res://Scripts/Personaje.gd" id="1_h6c8c"]
+[ext_resource type="SpriteFrames" uid="uid://4g65cbnd4h5p" path="res://Recursos/Animations_Armado.tres" id="2_h6c8c"]
+[ext_resource type="SpriteFrames" uid="uid://c2sh8ryvx3cv5" path="res://Recursos/Animations_Desarmado.tres" id="3_ith2g"]
+[ext_resource type="PackedScene" uid="uid://bmy6sgfjgwu0n" path="res://Scenes/Interfaz.tscn" id="4_5ss6n"]
+[ext_resource type="Texture2D" uid="uid://blqkm7q35puq5" path="res://Recursos/Sprites/PersonajePrincipal/dash_particle.png" id="4_sin02"]
+[ext_resource type="AudioStream" uid="uid://lu2vp4dnau8f" path="res://Recursos/Musica/Effects/player_dead_sound.MP3" id="5_t1ee5"]
+[ext_resource type="AudioStream" uid="uid://di2887n4ug3vq" path="res://Recursos/Musica/Effects/player_hit_sound.MP3" id="6_sin02"]
+[ext_resource type="AudioStream" uid="uid://mdog3jakele5" path="res://Recursos/Musica/Effects/player_dash_sound.wav" id="7_38khm"]
+
+[sub_resource type="Gradient" id="Gradient_38khm"]
+offsets = PackedFloat32Array(0.418006, 0.794212)
+colors = PackedColorArray(1, 1, 1, 1, 0.301961, 0.301961, 0.301961, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5vmsb"]
+gradient = SubResource("Gradient_38khm")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6c8c"]
+size = Vector2(14, 34.6)
+
+[sub_resource type="Curve" id="Curve_38khm"]
+_data = [Vector2(0, 0.921348), 0.0, 0.0, 0, 0, Vector2(0.688073, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5vmsb"]
+curve = SubResource("Curve_38khm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lhmt1"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 20, 1)
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_5vmsb")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t1ee5"]
+cull_mode = 1
+polygon = PackedVector2Array(-4, -14, 0, -18, 5, -15, 5, 17, 1, 15, -4, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a20eo"]
+size = Vector2(20, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1ee5"]
+size = Vector2(10, 1)
+
+[node name="Personaje" type="CharacterBody2D" node_paths=PackedStringArray("Stick_Controller") groups=["Personaje"]]
+script = ExtResource("1_h6c8c")
+Stick_Controller = NodePath("Interfaz/StickContainer/Stick")
+animations_desarmado = ExtResource("3_ith2g")
+animations_armado = ExtResource("2_h6c8c")
+
+[node name="Antorcha" type="PointLight2D" parent="."]
+enabled = false
+color = Color(1, 1, 0.847059, 1)
+energy = 1.4
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5vmsb")
+
+[node name="PersonajeCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.3)
+shape = SubResource("RectangleShape2D_h6c8c")
+
+[node name="dash_particle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 24
+texture = ExtResource("4_sin02")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_lhmt1")
+
+[node name="PersonajeAnimated" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = ExtResource("3_ith2g")
+animation = &"Idle"
+offset = Vector2(0, -10)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+occluder = SubResource("OccluderPolygon2D_t1ee5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(-22, 0)
+
+[node name="AttackCollision" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("RectangleShape2D_a20eo")
+disabled = true
+
+[node name="AttackBounceArea" type="Area2D" parent="."]
+position = Vector2(0, 18.13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBounceArea"]
+shape = SubResource("RectangleShape2D_t1ee5")
+
+[node name="Interfaz" parent="." instance=ExtResource("4_5ss6n")]
+
+[node name="DeadSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_t1ee5")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_sin02")
+
+[node name="dash_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_38khm")
+max_distance = 150.0
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="AttackBounceArea" to="." method="_on_attack_bounce_area_body_entered"]

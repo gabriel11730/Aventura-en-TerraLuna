@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://t57j21autatp"]
+
+[ext_resource type="Texture2D" uid="uid://bl6nyccsvgsf5" path="res://Recursos/Sprites/NPC's/PurpleShirt.png" id="1_548qq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_548qq"]
+atlas = ExtResource("1_548qq")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8wc7"]
+atlas = ExtResource("1_548qq")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6c6y"]
+atlas = ExtResource("1_548qq")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2kio"]
+atlas = ExtResource("1_548qq")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwq5v"]
+atlas = ExtResource("1_548qq")
+region = Rect2(320, 0, 80, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_548qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8wc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6c6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2kio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwq5v")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

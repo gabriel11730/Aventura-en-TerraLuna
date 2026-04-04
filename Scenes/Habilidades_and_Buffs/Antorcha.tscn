@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://b33y24scuempc"]
+
+[ext_resource type="Script" uid="uid://cf4oirxjd5rfa" path="res://Scripts/Habilidades_and_Buffs/Antorcha.gd" id="1_loqbx"]
+[ext_resource type="Texture2D" uid="uid://coqi1shcq26at" path="res://Recursos/Sprites/Enviroment/Torch Animated.png" id="1_nhljv"]
+[ext_resource type="AudioStream" uid="uid://b6ajbgh8entjv" path="res://Recursos/Musica/Effects/ActivadorConseguido.MP3" id="3_topgw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hccq4"]
+atlas = ExtResource("1_nhljv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86bek"]
+atlas = ExtResource("1_nhljv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuncu"]
+atlas = ExtResource("1_nhljv")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8jsf"]
+atlas = ExtResource("1_nhljv")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da4s6"]
+atlas = ExtResource("1_nhljv")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8rkg"]
+atlas = ExtResource("1_nhljv")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l5t5"]
+atlas = ExtResource("1_nhljv")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um02a"]
+atlas = ExtResource("1_nhljv")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wpsf7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hccq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86bek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuncu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8jsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da4s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8rkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l5t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um02a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_loqbx"]
+radius = 18.0
+
+[node name="Antorcha" type="Node2D"]
+script = ExtResource("1_loqbx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_wpsf7")
+autoplay = "default"
+frame_progress = 0.151357
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_loqbx")
+
+[node name="AntorchaObtenida" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_topgw")
+volume_db = -15.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="AntorchaObtenida" to="." method="_on_audio_stream_player_2d_finished"]

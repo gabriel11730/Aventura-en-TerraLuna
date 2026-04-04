@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://0408kte8p0m5"]
+
+[ext_resource type="Script" uid="uid://cok67v6e4pi63" path="res://Scripts/Habilidades_and_Buffs/ObtenerVida.gd" id="1_yedvv"]
+[ext_resource type="Texture2D" uid="uid://ewxbxsoreh2p" path="res://Recursos/Sprites/UI/heart.png" id="2_8qyhw"]
+[ext_resource type="AudioStream" uid="uid://b6ajbgh8entjv" path="res://Recursos/Musica/Effects/ActivadorConseguido.MP3" id="3_6ebav"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s57f4"]
+
+[node name="ObtenerVida" type="Node2D"]
+script = ExtResource("1_yedvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_8qyhw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s57f4")
+
+[node name="ActivadorConseguido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6ebav")
+volume_db = -15.0
+max_distance = 1000.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="ActivadorConseguido" to="." method="_on_activador_conseguido_finished"]

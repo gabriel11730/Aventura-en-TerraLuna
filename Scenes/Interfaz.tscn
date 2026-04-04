@@ -1,0 +1,181 @@
+[gd_scene load_steps=22 format=3 uid="uid://bmy6sgfjgwu0n"]
+
+[ext_resource type="Script" uid="uid://brbap5caks20h" path="res://Scripts/Interfaz.gd" id="1_g5lwj"]
+[ext_resource type="PackedScene" uid="uid://dcl2ffnfpc3" path="res://Scenes/Menus/Menu_Juego_Pausa.tscn" id="2_1qqr2"]
+[ext_resource type="Texture2D" uid="uid://ewxbxsoreh2p" path="res://Recursos/Sprites/UI/heart.png" id="2_iweu7"]
+[ext_resource type="Texture2D" uid="uid://ciun04773ps6h" path="res://Recursos/Sprites/UI/heart_empty.png" id="3_tnoly"]
+[ext_resource type="PackedScene" uid="uid://dt6xui8nrqf7b" path="res://Scenes/Menus/Menu_SendData.tscn" id="3_vmjln"]
+[ext_resource type="Texture2D" uid="uid://e57o7hmqicqk" path="res://Recursos/Sprites/UI/coin.png" id="4_iweu7"]
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="5_tnoly"]
+[ext_resource type="PackedScene" uid="uid://de5gv4d5w1fye" path="res://Scenes/Stick.tscn" id="6_nc2mk"]
+[ext_resource type="Texture2D" uid="uid://bvc203bixpq22" path="res://Recursos/Sprites/UI/ButtonPause.png" id="6_o2pco"]
+[ext_resource type="Texture2D" uid="uid://1k5k6as4335q" path="res://Recursos/Sprites/UI/ButtonSave.png" id="6_tcxyx"]
+[ext_resource type="Texture2D" uid="uid://wt2fci6xyus4" path="res://Recursos/Sprites/UI/ButtonPausePressed.png" id="7_1qqr2"]
+[ext_resource type="Texture2D" uid="uid://lredmaojjyxm" path="res://Recursos/Sprites/UI/button_dash.png" id="7_g2wfc"]
+[ext_resource type="Texture2D" uid="uid://u42hh3gdsjqo" path="res://Recursos/Sprites/UI/button_dash_pressed.png" id="7_mbqth"]
+[ext_resource type="Texture2D" uid="uid://c4qw1b0vjsn3p" path="res://Recursos/Sprites/UI/button_attack.png" id="8_mjr2n"]
+[ext_resource type="Texture2D" uid="uid://pkfn2ml80cad" path="res://Recursos/Sprites/UI/button_attack_pressed.png" id="9_tcxyx"]
+[ext_resource type="Texture2D" uid="uid://bcd05c8le4nki" path="res://Recursos/Sprites/UI/ButtonSavePressed.png" id="9_vmjln"]
+[ext_resource type="Texture2D" uid="uid://cuj6vgysu1tnw" path="res://Recursos/Sprites/UI/button_jump.png" id="9_we3xd"]
+[ext_resource type="Texture2D" uid="uid://nv38fhi345v2" path="res://Recursos/Sprites/UI/button_jump_pressed.png" id="11_f0x2c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbqth"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcxyx"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f0x2c"]
+radius = 32.0
+
+[node name="Interfaz" type="CanvasLayer"]
+script = ExtResource("1_g5lwj")
+MENU_PAUSA_SCENE = ExtResource("2_1qqr2")
+MENU_SEND_DATA = ExtResource("3_vmjln")
+heart = ExtResource("2_iweu7")
+heart_empty = ExtResource("3_tnoly")
+
+[node name="StatsContainer" type="VBoxContainer" parent="."]
+offset_left = 42.0
+offset_top = 32.0
+offset_right = 248.0
+offset_bottom = 112.0
+
+[node name="HeartsContainer" type="HBoxContainer" parent="StatsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Heart1" type="TextureRect" parent="StatsContainer/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_iweu7")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="StatsContainer/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_iweu7")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="StatsContainer/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_iweu7")
+expand_mode = 2
+
+[node name="Heart4" type="TextureRect" parent="StatsContainer/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_iweu7")
+expand_mode = 2
+
+[node name="Heart5" type="TextureRect" parent="StatsContainer/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_iweu7")
+expand_mode = 2
+
+[node name="CoinsContainer" type="HBoxContainer" parent="StatsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Coins" type="TextureRect" parent="StatsContainer/CoinsContainer"]
+layout_mode = 2
+texture = ExtResource("4_iweu7")
+expand_mode = 2
+
+[node name="CoinsCollected" type="Label" parent="StatsContainer/CoinsContainer"]
+layout_mode = 2
+theme = ExtResource("5_tnoly")
+theme_type_variation = &"TooltipLabel"
+text = " x 00"
+
+[node name="PauseContainer" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ButtonPause" type="TouchScreenButton" parent="PauseContainer"]
+position = Vector2(-85, 34)
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("6_o2pco")
+texture_pressed = ExtResource("7_1qqr2")
+
+[node name="SaveContainer" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="ButtonSave" type="TouchScreenButton" parent="SaveContainer"]
+position = Vector2(0, 32)
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("6_tcxyx")
+texture_pressed = ExtResource("9_vmjln")
+
+[node name="ButtonContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -284.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ButtonDash" type="TouchScreenButton" parent="ButtonContainer"]
+modulate = Color(1, 1, 1, 0.705882)
+position = Vector2(192, 0)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("7_g2wfc")
+texture_pressed = ExtResource("7_mbqth")
+shape = SubResource("CircleShape2D_mbqth")
+action = "dash"
+
+[node name="ButtonAttack" type="TouchScreenButton" parent="ButtonContainer"]
+modulate = Color(1, 1, 1, 0.705882)
+position = Vector2(96, 128)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_mjr2n")
+texture_pressed = ExtResource("9_tcxyx")
+shape = SubResource("CircleShape2D_tcxyx")
+action = "Atacar"
+
+[node name="ButtonJump" type="TouchScreenButton" parent="ButtonContainer"]
+modulate = Color(1, 1, 1, 0.705882)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("9_we3xd")
+texture_pressed = ExtResource("11_f0x2c")
+shape = SubResource("CircleShape2D_f0x2c")
+action = "saltar"
+
+[node name="StickContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="Stick" parent="StickContainer" instance=ExtResource("6_nc2mk")]
+position = Vector2(224, -204)
+scale = Vector2(1.2, 1.2)
+
+[node name="Cuenta_Regresiva" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[connection signal="pressed" from="PauseContainer/ButtonPause" to="." method="_on_button_pause_pressed"]
+[connection signal="pressed" from="SaveContainer/ButtonSave" to="." method="_on_button_save_pressed"]

@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cfjtwbmcqhjie"]
+
+[ext_resource type="Texture2D" uid="uid://b0jqs0om1836i" path="res://Recursos/Sprites/NPC's/Minero.png" id="1_atvu5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hggoh"]
+atlas = ExtResource("1_atvu5")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwh8r"]
+atlas = ExtResource("1_atvu5")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1mm1"]
+atlas = ExtResource("1_atvu5")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0cjl"]
+atlas = ExtResource("1_atvu5")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4187s"]
+atlas = ExtResource("1_atvu5")
+region = Rect2(320, 0, 80, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hggoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwh8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1mm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0cjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4187s")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

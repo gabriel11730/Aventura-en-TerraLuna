@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://w8hunt2bi03f"]
+
+[ext_resource type="Script" uid="uid://vmtrddhofsf4" path="res://Scripts/Habilidades_and_Buffs/ActivadorSword.gd" id="1_utq62"]
+[ext_resource type="Texture2D" uid="uid://c4qw1b0vjsn3p" path="res://Recursos/Sprites/UI/button_attack.png" id="2_fvdgv"]
+[ext_resource type="AudioStream" uid="uid://b6ajbgh8entjv" path="res://Recursos/Musica/Effects/ActivadorConseguido.MP3" id="3_fvdgv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s57f4"]
+radius = 12.0
+
+[node name="Sword" type="Node2D"]
+script = ExtResource("1_utq62")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_fvdgv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s57f4")
+
+[node name="ActivadorConseguido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fvdgv")
+volume_db = -15.0
+max_distance = 1000.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="ActivadorConseguido" to="." method="_on_activador_conseguido_finished"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkoq2xgbahd68"]
+
+[ext_resource type="Texture2D" uid="uid://bvx1124ktaro1" path="res://Recursos/Sprites/NPC's/Enemigo_historia.png" id="1_vhe3k"]
+
+[node name="Caballero" type="Node2D"]
+scale = Vector2(0.09, 0.09)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vhe3k")

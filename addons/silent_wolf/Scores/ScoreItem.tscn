@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://2wy4d8d5av0l"]
+
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="1_jqdn1"]
+
+[node name="ScoreItem" type="Panel"]
+custom_minimum_size = Vector2(500, 65)
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_jqdn1")
+
+[node name="PlayerName" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -25.5
+offset_right = 341.0
+offset_bottom = 24.5
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 47
+text = "1. Godzilla"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -24.0
+offset_right = -34.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 48
+text = "13"
+horizontal_alignment = 1
+vertical_alignment = 1

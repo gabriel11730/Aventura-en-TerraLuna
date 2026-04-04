@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://ngm8hcg4id05"]
+
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="1_sryba"]
+[ext_resource type="Script" uid="uid://b61a6r774xroe" path="res://Scripts/Menus/MenuPrincipal.gd" id="2_po5sx"]
+[ext_resource type="Resource" uid="uid://dwmu4nujeyekb" path="res://Recursos/Cinematicas/New_Escene_1.tres" id="3_2lktg"]
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="3_43h2a"]
+[ext_resource type="Texture2D" uid="uid://daffp5gw2lsko" path="res://Recursos/Backgrounds/BackgroundMenuPrincipal_2.png" id="6_43h2a"]
+
+[node name="Menu_Principal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sryba")
+script = ExtResource("2_po5sx")
+Datos_Historia = Array[ExtResource("3_43h2a")]([ExtResource("3_2lktg")])
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_43h2a")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TituloContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.264
+anchor_right = 0.5
+anchor_bottom = 0.264
+offset_left = -268.5
+offset_top = -22.56
+offset_right = 268.5
+offset_bottom = 22.44
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TituloLabel" type="Label" parent="TituloContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Aventura en Terra Luna"
+
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = -294.0
+offset_right = 271.0
+offset_bottom = -82.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="JugarButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = "Historia"
+
+[node name="MiniJuegosButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = "Mini Juegos"
+
+[node name="OpcionesButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = " Opciones"
+
+[node name="SalirButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = "Salir"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -135.0
+offset_right = -71.0
+offset_bottom = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = " Controles "
+
+[connection signal="pressed" from="ButtonContainer/JugarButton" to="." method="_on_jugar_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/MiniJuegosButton" to="." method="_on_mini_juegos_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/OpcionesButton" to="." method="_on_opciones_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/SalirButton" to="." method="_on_salir_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]

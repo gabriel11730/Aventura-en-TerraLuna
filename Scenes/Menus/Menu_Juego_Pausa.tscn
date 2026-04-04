@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcl2ffnfpc3"]
+
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="1_7l5jn"]
+[ext_resource type="Script" uid="uid://j3sphqra1qcf" path="res://Scripts/Menus/MenuJuegoPausa.gd" id="1_g4yut"]
+
+[node name="Menu_Juego_Pausa" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("1_g4yut")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.419608, 0.419608, 0.419608, 0.588235)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_7l5jn")
+alignment = 1
+
+[node name="PausaLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+text = "Estamos en Pausa 👀
+"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ContinuarButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="CargarButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = " Cargar ultimo "
+
+[node name="CambiarMusica" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cambiar Musica"
+
+[node name="VolumenButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = " Musica : ON "
+
+[node name="SalirButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Salir al Menu"
+
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/VBoxContainer/ContinuarButton" to="." method="_on_continuar_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/VBoxContainer/CargarButton" to="." method="_on_cargar_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/VBoxContainer/CambiarMusica" to="." method="_on_cambiar_musica_pressed"]
+[connection signal="toggled" from="ColorRect/CenterContainer/VBoxContainer/VBoxContainer/VolumenButton" to="." method="_on_volumen_button_toggled"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/VBoxContainer/SalirButton" to="." method="_on_salir_button_pressed"]

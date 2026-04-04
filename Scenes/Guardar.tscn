@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://4yntbofl4rxo"]
+
+[ext_resource type="Script" uid="uid://b30t1gbcawwv3" path="res://Scripts/Guardar.gd" id="1_en60d"]
+[ext_resource type="Texture2D" uid="uid://wq1cd3fy2bgp" path="res://Recursos/Sprites/Enviroment/Garden Decorations.png" id="2_ftcep"]
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="3_en60d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftcep"]
+size = Vector2(20.385, 25)
+
+[node name="Guardar" type="Node2D"]
+script = ExtResource("1_en60d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ftcep")
+hframes = 7
+vframes = 2
+frame = 7
+
+[node name="AreaGuardar" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGuardar"]
+shape = SubResource("RectangleShape2D_ftcep")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_en60d")
+
+[node name="Frase" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_right = 63.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 16
+text = "Guardar Partida?"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="AreaGuardar" to="." method="_on_area_guardar_body_entered"]
+[connection signal="body_exited" from="AreaGuardar" to="." method="_on_area_guardar_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

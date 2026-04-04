@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatosHistoria" load_steps=3 format=3 uid="uid://bo3tsyoih345t"]
+
+[ext_resource type="Texture2D" uid="uid://co1n8yd4qp1vf" path="res://Recursos/Backgrounds/ImagenesCinematicas/IMG_07.png" id="1_hlnwk"]
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="1_qe8q1"]
+
+[resource]
+script = ExtResource("1_qe8q1")
+cinematic_title = "Título de la Cinemática"
+texts = Array[String](["~ El concimiento es poder ~", "Esta historia llega a su fin"])
+background_texture = Array[Texture2D]([ExtResource("1_hlnwk")])
+ruta_siguiente_escena = "res://Scenes/Menus/Menu_Creditos.tscn"
+volver_al_mundo = false
+metadata/_custom_type_script = "uid://bt54tg87asjos"

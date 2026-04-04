@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://de5gv4d5w1fye"]
+
+[ext_resource type="Script" uid="uid://cnm8h1p6thsi3" path="res://Scripts/Stick.gd" id="1_s40ib"]
+[ext_resource type="Texture2D" uid="uid://cerv0xnwiujsn" path="res://Recursos/Sprites/UI/stick_base_1.png" id="2_s40ib"]
+[ext_resource type="Texture2D" uid="uid://c13802vb0enwl" path="res://Recursos/Sprites/UI/stick_lever_1.png" id="3_2ithj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s40ib"]
+radius = 96.0
+
+[node name="Stick" type="Area2D"]
+script = ExtResource("1_s40ib")
+
+[node name="StickCollision" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_s40ib")
+
+[node name="StickBase" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+scale = Vector2(3, 3)
+texture = ExtResource("2_s40ib")
+
+[node name="StickLever" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+scale = Vector2(3, 3)
+texture = ExtResource("3_2ithj")

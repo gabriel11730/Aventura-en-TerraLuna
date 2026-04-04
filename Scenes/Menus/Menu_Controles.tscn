@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmyq0xr7587b7"]
+
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="1_nefvv"]
+[ext_resource type="Script" uid="uid://cpxhn622ljnby" path="res://Scripts/Menus/MenuControles.gd" id="2_8b3xm"]
+[ext_resource type="Texture2D" uid="uid://daffp5gw2lsko" path="res://Recursos/Backgrounds/BackgroundMenuPrincipal_2.png" id="3_w43ky"]
+[ext_resource type="Texture2D" uid="uid://be60ovxs6vm4m" path="res://Recursos/Sprites/UI/MenuControles/controller_black.png" id="4_8b3xm"]
+[ext_resource type="Texture2D" uid="uid://c75pe84p2dry" path="res://Recursos/Sprites/UI/MenuControles/keyboard_minimal_black.png" id="5_iohap"]
+[ext_resource type="Texture2D" uid="uid://g80sxh4tqhnl" path="res://Recursos/Sprites/UI/MenuControles/smartphone.png" id="6_67tfj"]
+
+[node name="Menu_Controles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nefvv")
+script = ExtResource("2_8b3xm")
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_w43ky")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -77.0
+offset_right = 227.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MandoContainer" type="VBoxContainer" parent="ButtonContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="MandoTextura" type="TextureRect" parent="ButtonContainer/MandoContainer"]
+layout_mode = 2
+texture = ExtResource("4_8b3xm")
+stretch_mode = 3
+
+[node name="MandoButton" type="Button" parent="ButtonContainer/MandoContainer"]
+layout_mode = 2
+text = " Mando "
+
+[node name="TecladoContainer" type="VBoxContainer" parent="ButtonContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="TecladoTextura" type="TextureRect" parent="ButtonContainer/TecladoContainer"]
+layout_mode = 2
+texture = ExtResource("5_iohap")
+stretch_mode = 3
+
+[node name="TecladoButton" type="Button" parent="ButtonContainer/TecladoContainer"]
+layout_mode = 2
+text = " Teclado "
+
+[node name="PantallaContainer" type="VBoxContainer" parent="ButtonContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="PantallaTextura" type="TextureRect" parent="ButtonContainer/PantallaContainer"]
+layout_mode = 2
+texture = ExtResource("6_67tfj")
+stretch_mode = 3
+flip_v = true
+
+[node name="PantallaButton" type="Button" parent="ButtonContainer/PantallaContainer"]
+layout_mode = 2
+text = " Pantalla "
+
+[node name="ButtonContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -130.0
+offset_right = 58.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VolverButton" type="Button" parent="ButtonContainer2"]
+layout_mode = 2
+text = "Volver"
+
+[connection signal="pressed" from="ButtonContainer/MandoContainer/MandoButton" to="." method="_on_mando_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/TecladoContainer/TecladoButton" to="." method="_on_teclado_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/PantallaContainer/PantallaButton" to="." method="_on_pantalla_button_pressed"]
+[connection signal="pressed" from="ButtonContainer2/VolverButton" to="." method="_on_volver_button_pressed"]

@@ -1,0 +1,251 @@
+[gd_scene load_steps=15 format=3 uid="uid://dyw3s1qy6xp0k"]
+
+[ext_resource type="Texture2D" uid="uid://dhabsp776twfd" path="res://Recursos/Sprites/Enemies/wolf.png" id="1_8mien"]
+[ext_resource type="Script" uid="uid://bxpk8jloabgwm" path="res://Scripts/Obstacles_Enemies/EnemyLobo.gd" id="1_wucc1"]
+[ext_resource type="AudioStream" uid="uid://c4ttdn43h5kce" path="res://Recursos/Musica/Effects/lobo_died.MP3" id="3_wucc1"]
+[ext_resource type="AudioStream" uid="uid://b221u2omu7khy" path="res://Recursos/Musica/Effects/hit.MP3" id="4_aac37"]
+[ext_resource type="AudioStream" uid="uid://c6ccpd3rotak3" path="res://Recursos/Musica/Effects/lobo_ataque.MP3" id="4_oq6os"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aac37"]
+size = Vector2(52, 28)
+
+[sub_resource type="Animation" id="Animation_oq6os"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemySprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_golc2"]
+resource_name = "attack"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_aac37"]
+resource_name = "die"
+length = 0.80001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.200005, 0, 0.200005, 0, 1, -0.200005, 0, 0.200005, 0, 1, -0.200005, 0, 0.200005, 0, 1, -0.200005, 0, 0.200005, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.200005, 0, 0.200005, 0, 0, -0.200005, 0, 0.200005, 0, 0, -0.200005, 0, 0.200005, 0, 0, -0.200005, 0, 0.200005, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.200005, 0, 0.200005, 0, 0, -0.200005, 0, 0.200005, 0, 0, -0.200005, 0, 0.200005, 0, 0, -0.200005, 0, 0.200005, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.200005, 0, 0.200005, 0, 0.619608, -0.200005, 0, 0.200005, 0, 1, -0.200005, 0, 0.200005, 0, 0.6, -0.200005, 0, 0.200005, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
+}
+
+[sub_resource type="Animation" id="Animation_xts61"]
+resource_name = "run"
+length = 0.500003
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_xketg"]
+resource_name = "take_damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemySprite:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.862745, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_wucc1"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0625, 0.25, 0.4375, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xts61"]
+_data = {
+&"RESET": SubResource("Animation_oq6os"),
+&"attack": SubResource("Animation_golc2"),
+&"die": SubResource("Animation_aac37"),
+&"run": SubResource("Animation_xts61"),
+&"take_damage": SubResource("Animation_xketg"),
+&"walk": SubResource("Animation_wucc1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oq6os"]
+size = Vector2(13.375, 2)
+
+[node name="EnemyLobo" type="CharacterBody2D" groups=["Enemy", "GameEvents"]]
+script = ExtResource("1_wucc1")
+vida = 3
+min_speed = 35
+max_speed = 90
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_aac37")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.862745)
+texture = ExtResource("1_8mien")
+hframes = 5
+vframes = 4
+
+[node name="EnemyAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xts61")
+}
+autoplay = "walk"
+
+[node name="DeadSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wucc1")
+volume_db = 8.0
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aac37")
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_oq6os")
+volume_db = 4.0
+
+[node name="AttackBack" type="Area2D" parent="."]
+position = Vector2(0, -14)
+
+[node name="AttackBackCollision" type="CollisionShape2D" parent="AttackBack"]
+position = Vector2(19.5, 0)
+shape = SubResource("RectangleShape2D_oq6os")
+
+[node name="AttackBackCollision2" type="CollisionShape2D" parent="AttackBack"]
+position = Vector2(-19.337, 0)
+shape = SubResource("RectangleShape2D_oq6os")
+
+[node name="Raycast" type="Marker2D" parent="."]
+
+[node name="IsPrecipice" type="RayCast2D" parent="Raycast"]
+position = Vector2(35, 0)
+target_position = Vector2(0, 25)
+
+[node name="IsEnemy" type="RayCast2D" parent="Raycast"]
+position = Vector2(32, 0)
+target_position = Vector2(90, 0)
+
+[node name="Attack" type="RayCast2D" parent="Raycast"]
+position = Vector2(26, -8)
+target_position = Vector2(10, 0)
+
+[connection signal="animation_finished" from="EnemyAnimation" to="." method="_on_enemy_animation_finished"]
+[connection signal="animation_started" from="EnemyAnimation" to="." method="_on_enemy_animation_started"]
+[connection signal="body_entered" from="AttackBack" to="." method="_on_attack_back_body_entered"]

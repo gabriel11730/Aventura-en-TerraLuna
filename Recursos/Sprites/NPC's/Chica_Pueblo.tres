@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bxrssclfb4x27"]
+
+[ext_resource type="Texture2D" uid="uid://dvnx4jyhr6kyk" path="res://Recursos/Sprites/NPC's/Chica_Pueblo.png" id="1_d47w2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omvc3"]
+atlas = ExtResource("1_d47w2")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyteq"]
+atlas = ExtResource("1_d47w2")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82spg"]
+atlas = ExtResource("1_d47w2")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va7k3"]
+atlas = ExtResource("1_d47w2")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcgsi"]
+atlas = ExtResource("1_d47w2")
+region = Rect2(320, 0, 80, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omvc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyteq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82spg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va7k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcgsi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

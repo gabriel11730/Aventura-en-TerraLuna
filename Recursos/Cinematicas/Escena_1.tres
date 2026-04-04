@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatosHistoria" load_steps=3 format=3 uid="uid://cs4v8ybnw85f6"]
+
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="1_g8fu8"]
+[ext_resource type="Texture2D" uid="uid://7x0stgk3qaqh" path="res://Recursos/Backgrounds/ImagenesCinematicas/IMG_01.png" id="1_sqmqn"]
+
+[resource]
+script = ExtResource("1_g8fu8")
+cinematic_title = "Introduccion_Historia"
+texts = Array[String](["En algun sitio entre las montañas del continente de Terra Luna", "Alguna vez hubo una pacifica aldea donde todos vivian felices", "hasta que un dia..."])
+background_texture = Array[Texture2D]([ExtResource("1_sqmqn")])
+ruta_siguiente_escena = "res://Scenes/Niveles/Level1.tscn"
+volver_al_mundo = false
+metadata/_custom_type_script = "uid://bt54tg87asjos"

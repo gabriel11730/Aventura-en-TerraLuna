@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://djsf727y6ywpu"]
+
+[ext_resource type="Script" uid="uid://dkaj2eqxumwab" path="res://Scripts/Book.gd" id="1_85ged"]
+[ext_resource type="Texture2D" uid="uid://bi1o266o8xjm5" path="res://Recursos/Sprites/Enviroment/Book.png" id="2_fkisk"]
+[ext_resource type="Resource" uid="uid://bo3tsyoih345t" path="res://Recursos/Cinematicas/Escena_06.tres" id="2_qgycy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgycy"]
+
+[node name="Book" type="Node2D"]
+script = ExtResource("1_85ged")
+Cinematica = ExtResource("2_qgycy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fkisk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qgycy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

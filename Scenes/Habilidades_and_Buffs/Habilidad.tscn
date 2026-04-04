@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b36toiy04i0yu"]
+
+[ext_resource type="Script" uid="uid://cnvy1eihcwpt2" path="res://Scripts/Habilidades_and_Buffs/Habilidad.gd" id="1_3qmgk"]
+[ext_resource type="Texture2D" uid="uid://ewxbxsoreh2p" path="res://Recursos/Sprites/UI/heart.png" id="2_icogd"]
+[ext_resource type="Texture2D" uid="uid://lredmaojjyxm" path="res://Recursos/Sprites/UI/button_dash.png" id="3_6oodf"]
+[ext_resource type="AudioStream" uid="uid://b6ajbgh8entjv" path="res://Recursos/Musica/Effects/ActivadorConseguido.MP3" id="4_rkifl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s57f4"]
+radius = 12.0
+
+[node name="Habilidad" type="Node2D" groups=["GameEvents"]]
+script = ExtResource("1_3qmgk")
+Sprite = ExtResource("2_icogd")
+
+[node name="HabilidadSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_6oodf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s57f4")
+
+[node name="HabilidadSonido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_rkifl")
+volume_db = -15.0
+max_distance = 1000.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="HabilidadSonido" to="." method="_on_sonido_finished"]

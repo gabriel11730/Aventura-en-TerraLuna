@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatosHistoria" load_steps=3 format=3 uid="uid://c6bh7gb44wrnd"]
+
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="1_e5g4q"]
+[ext_resource type="Texture2D" uid="uid://ch4w7pqsyt3pl" path="res://Recursos/Backgrounds/ImagenesCinematicas/IMG_06.png" id="1_wjtge"]
+
+[resource]
+script = ExtResource("1_e5g4q")
+cinematic_title = "Cueva"
+texts = Array[String](["El joven Edward, logro llegar a la entrada de una cueva, alli esparaba encontrar alguna pista..,", "pero no seria tan facil."])
+background_texture = Array[Texture2D]([ExtResource("1_wjtge")])
+ruta_siguiente_escena = "res://Scenes/Niveles/Level2.tscn"
+volver_al_mundo = false
+metadata/_custom_type_script = "uid://bt54tg87asjos"

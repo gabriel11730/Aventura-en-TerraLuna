@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatosHistoria" load_steps=3 format=3 uid="uid://b5jf5arnsadou"]
+
+[ext_resource type="Texture2D" uid="uid://bk58qdf7h54gr" path="res://Recursos/Backgrounds/ImagenesCinematicas/IMG_02.png" id="1_2mjmd"]
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="1_a2tha"]
+
+[resource]
+script = ExtResource("1_a2tha")
+cinematic_title = "Presentacion_Villano"
+texts = Array[String](["Un villano a llegado a la aldea", "VILLANO: Busco unas riquezas que se encuentran bajo estas tierras", "Asi que marchense antes de que sus vidas acaben junto con las ruinas de este lugar!."])
+background_texture = Array[Texture2D]([ExtResource("1_2mjmd")])
+ruta_siguiente_escena = ""
+volver_al_mundo = true
+metadata/_custom_type_script = "uid://bt54tg87asjos"

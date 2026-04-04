@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatosHistoria" load_steps=3 format=3 uid="uid://dwmu4nujeyekb"]
+
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="1_0qqkd"]
+[ext_resource type="Texture2D" uid="uid://bk58qdf7h54gr" path="res://Recursos/Backgrounds/ImagenesCinematicas/IMG_02.png" id="1_cw7lf"]
+
+[resource]
+script = ExtResource("1_0qqkd")
+cinematic_title = "Introduccion_Historia"
+texts = Array[String](["La Paz no durara para siempre", "Hoy ha llegado un malvado caballero a la aldea"])
+background_texture = Array[Texture2D]([ExtResource("1_cw7lf")])
+ruta_siguiente_escena = "res://Scenes/Niveles/Level1.tscn"
+volver_al_mundo = false
+metadata/_custom_type_script = "uid://bt54tg87asjos"

@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://dijq3hmhin8jx"]
+
+[ext_resource type="Script" uid="uid://v38xwx0k26l3" path="res://Scripts/Cinematicas.gd" id="1_1f12j"]
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="2_x1pvl"]
+
+[node name="Cinematicas" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_1f12j")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 960.0
+grow_horizontal = 2
+expand_mode = 4
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = -200.0
+offset_right = 275.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_x1pvl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 22.0
+offset_right = -25.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelsControl" type="Control" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelContainer" type="VBoxContainer" parent="Panel/MarginContainer/LabelsControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="ControlButtons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -380.0
+offset_top = -89.0
+offset_right = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(352, 89)
+theme = ExtResource("2_x1pvl")
+
+[node name="SaltarButton" type="Button" parent="ControlButtons"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -26.5
+offset_bottom = 26.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Saltar"
+
+[node name="ContinuarButton" type="Button" parent="ControlButtons"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -26.5
+offset_right = 172.0
+offset_bottom = 26.5
+grow_vertical = 2
+text = "Continuar"
+
+[connection signal="pressed" from="ControlButtons/SaltarButton" to="." method="_on_saltar_button_pressed"]
+[connection signal="pressed" from="ControlButtons/ContinuarButton" to="." method="_on_continuar_button_pressed"]

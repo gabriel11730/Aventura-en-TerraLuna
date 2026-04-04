@@ -1,0 +1,154 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo2ov6jvd3i8i"]
+
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="1_ao0ho"]
+[ext_resource type="Script" uid="uid://bwlvwqd22ujbi" path="res://Scripts/Menus/WinMiniGames.gd" id="2_ao0ho"]
+[ext_resource type="Texture2D" uid="uid://h1ki3jygikyv" path="res://Recursos/Sprites/Enviroment/Decor.png" id="3_wupsw"]
+
+[sub_resource type="Gradient" id="Gradient_ao0ho"]
+colors = PackedColorArray(3.85046e-07, 0.785651, 0.425774, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hitmj"]
+gradient = SubResource("Gradient_ao0ho")
+
+[node name="WinMiniGames" type="Control"]
+modulate = Color(1, 1, 1, 0.309804)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ao0ho")
+script = ExtResource("2_ao0ho")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_hitmj")
+
+[node name="TituloGameOverContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.264
+anchor_right = 0.5
+anchor_bottom = 0.264
+offset_left = -355.0
+offset_top = -47.56
+offset_right = 356.0
+offset_bottom = 45.44
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="TituloGameOverLabel" type="Label" parent="TituloGameOverContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Area en Construccion
+No esperaba que alguien ganara"
+
+[node name="SpritesContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Lapida" type="Sprite2D" parent="SpritesContainer"]
+position = Vector2(-284, -96)
+scale = Vector2(6, 6)
+texture = ExtResource("3_wupsw")
+hframes = 13
+vframes = 17
+frame = 51
+
+[node name="Stone0" type="Sprite2D" parent="SpritesContainer"]
+position = Vector2(-409, -48)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wupsw")
+hframes = 13
+vframes = 17
+frame = 67
+
+[node name="Stone1" type="Sprite2D" parent="SpritesContainer"]
+position = Vector2(-153, -48)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wupsw")
+hframes = 13
+vframes = 17
+frame = 69
+
+[node name="Grass0" type="Sprite2D" parent="SpritesContainer"]
+position = Vector2(-547, -48)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wupsw")
+hframes = 13
+vframes = 17
+frame = 65
+
+[node name="Grass1" type="Sprite2D" parent="SpritesContainer"]
+position = Vector2(-48, -48)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wupsw")
+hframes = 13
+vframes = 17
+frame = 54
+
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -28.0
+offset_right = 343.0
+offset_bottom = 165.0
+grow_vertical = 2
+
+[node name="ResetButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"FlatButton"
+text = "Reiniciar Juego"
+
+[node name="CargarButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_type_variation = &"FlatButton"
+text = "Cargar Ultimo"
+
+[node name="BackButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_type_variation = &"FlatButton"
+text = "Volver al Menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -495.0
+offset_top = 68.0
+offset_right = -71.0
+offset_bottom = 119.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"HeaderSmall"
+text = "Se me da muy mal el arte pero ya pensare
+en algo"
+
+[connection signal="pressed" from="ButtonContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/CargarButton" to="." method="_on_cargar_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]

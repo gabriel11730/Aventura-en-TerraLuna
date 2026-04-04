@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cd7caoxd4nkce"]
+
+[ext_resource type="Texture2D" uid="uid://b6dgksmey1duh" path="res://Recursos/Sprites/NPC's/Herrero.png" id="1_s1sth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qrxk"]
+atlas = ExtResource("1_s1sth")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd3rw"]
+atlas = ExtResource("1_s1sth")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv0n3"]
+atlas = ExtResource("1_s1sth")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33ocw"]
+atlas = ExtResource("1_s1sth")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5frx"]
+atlas = ExtResource("1_s1sth")
+region = Rect2(320, 0, 80, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qrxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd3rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv0n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33ocw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5frx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

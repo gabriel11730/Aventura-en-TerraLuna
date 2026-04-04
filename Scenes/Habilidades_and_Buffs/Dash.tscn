@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctlpxxi1bf723"]
+
+[ext_resource type="Script" uid="uid://dfo12kdd2lacy" path="res://Scripts/Habilidades_and_Buffs/ActivadorDash.gd" id="1_qrhbi"]
+[ext_resource type="Texture2D" uid="uid://lredmaojjyxm" path="res://Recursos/Sprites/UI/button_dash.png" id="2_xjrc4"]
+[ext_resource type="AudioStream" uid="uid://b6ajbgh8entjv" path="res://Recursos/Musica/Effects/ActivadorConseguido.MP3" id="3_qrhbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s57f4"]
+radius = 12.0
+
+[node name="Habilidad" type="Node2D"]
+script = ExtResource("1_qrhbi")
+
+[node name="HabilidadSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_xjrc4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s57f4")
+
+[node name="HabilidadSonido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qrhbi")
+volume_db = -15.0
+max_distance = 1000.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="HabilidadSonido" to="." method="_on_activador_conseguido_finished"]

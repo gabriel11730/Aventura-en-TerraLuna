@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkaee8hp6j40m"]
+
+[ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="1_so2rc"]
+[ext_resource type="Script" uid="uid://cdtbwydul33dy" path="res://Scripts/Menus/MenuOpciones.gd" id="2_hpy18"]
+[ext_resource type="Texture2D" uid="uid://daffp5gw2lsko" path="res://Recursos/Backgrounds/BackgroundMenuPrincipal_2.png" id="3_sl3tq"]
+
+[node name="Menu_Opciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_so2rc")
+script = ExtResource("2_hpy18")
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_sl3tq")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -83.5
+offset_right = 90.0
+offset_bottom = 83.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CambiarMusica" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = "Cambiar Musica"
+
+[node name="MusicaButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+toggle_mode = true
+text = " Musica: ON "
+
+[node name="CreditosButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = " Creditos"
+
+[node name="VolverButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = "Volver"
+
+[connection signal="pressed" from="ButtonContainer/CambiarMusica" to="." method="_on_cambiar_musica_pressed"]
+[connection signal="toggled" from="ButtonContainer/MusicaButton" to="." method="_on_sonido_button_toggled"]
+[connection signal="pressed" from="ButtonContainer/CreditosButton" to="." method="_on_creditos_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/VolverButton" to="." method="_on_volver_button_pressed"]

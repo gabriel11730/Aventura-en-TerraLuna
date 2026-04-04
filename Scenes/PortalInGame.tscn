@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dguyngxph6jdy"]
+
+[ext_resource type="TileSet" uid="uid://bhsesy653y7n7" path="res://Recursos/Sprites/Enviroment/TileSetBase.tres" id="1_7occf"]
+[ext_resource type="Script" uid="uid://cabbc6m5npq3v" path="res://Scripts/PortalInGame.gd" id="1_f0xq3"]
+[ext_resource type="AudioStream" uid="uid://xqfs7klam1bi" path="res://Recursos/Musica/Effects/portal_ambiente.wav" id="3_qm2kb"]
+[ext_resource type="AudioStream" uid="uid://d34guowck12lr" path="res://Recursos/Musica/Effects/portal_action.MP3" id="4_syvml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0xq3"]
+
+[node name="Portal" type="Node2D"]
+script = ExtResource("1_f0xq3")
+next_scene_path = "uid://oncsfkkklu0b"
+
+[node name="SpritePortal" type="TileMapLayer" parent="."]
+position = Vector2(-8, 16)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 5, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_7occf")
+
+[node name="AreaPortal" type="Area2D" parent="."]
+
+[node name="CollisionPortal" type="CollisionShape2D" parent="AreaPortal"]
+shape = SubResource("RectangleShape2D_f0xq3")
+
+[node name="AudioPortal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qm2kb")
+autoplay = true
+max_distance = 350.0
+
+[node name="TransportPortal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_syvml")
+volume_db = -12.0
+
+[connection signal="body_entered" from="AreaPortal" to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioPortal" to="." method="_on_audio_portal_finished"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatosHistoria" load_steps=3 format=3 uid="uid://bpyncw6blnlsk"]
+
+[ext_resource type="Script" uid="uid://bt54tg87asjos" path="res://Scripts/DatosHistoria.gd" id="1_d4m0a"]
+[ext_resource type="Texture2D" uid="uid://ingtn2xggcbx" path="res://Recursos/Backgrounds/ImagenesCinematicas/minigames.png" id="1_mrp2s"]
+
+[resource]
+script = ExtResource("1_d4m0a")
+cinematic_title = "Instrucciones"
+texts = Array[String](["Debes recoger todas las monedas para desbloquear el portal al siguiente nivel", "Solo 3 vidas, Tiempo limitado y 3 habilidades"])
+background_texture = Array[Texture2D]([ExtResource("1_mrp2s")])
+ruta_siguiente_escena = ""
+volver_al_mundo = true
+metadata/_custom_type_script = "uid://bt54tg87asjos"

@@ -1,0 +1,234 @@
+[gd_scene load_steps=15 format=3 uid="uid://bjjk1da0fxsal"]
+
+[ext_resource type="Script" uid="uid://whp6i0q5no1a" path="res://Scripts/Obstacles_Enemies/EnemyOrc.gd" id="1_embii"]
+[ext_resource type="Texture2D" uid="uid://d3kee02e3e0a6" path="res://Recursos/Sprites/Enemies/Orc.png" id="2_4qb58"]
+[ext_resource type="AudioStream" uid="uid://sta070i8k708" path="res://Recursos/Musica/Effects/orc_dead.MP3" id="3_38x27"]
+[ext_resource type="AudioStream" uid="uid://b221u2omu7khy" path="res://Recursos/Musica/Effects/hit.MP3" id="3_p66rv"]
+[ext_resource type="AudioStream" uid="uid://dlu07vfhko4uf" path="res://Recursos/Musica/Effects/orc_attack.MP3" id="5_4x4wj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p66rv"]
+size = Vector2(14, 14)
+
+[sub_resource type="Animation" id="Animation_38x27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemySprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rbhy0"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21]
+}
+
+[sub_resource type="Animation" id="Animation_tfmw6"]
+resource_name = "die"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemySprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.276794, 0.412904),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_4x4wj"]
+resource_name = "run"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333, 0.366667, 0.5, 0.633333, 0.766667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_q4x8o"]
+resource_name = "take_damage"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemySprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g3f1h"]
+resource_name = "take_damage_2"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemySprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p66rv"]
+resource_name = "walk"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.766667, 1, 1.23333, 1.46667, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4x4wj"]
+_data = {
+&"RESET": SubResource("Animation_38x27"),
+&"attack": SubResource("Animation_rbhy0"),
+&"die": SubResource("Animation_tfmw6"),
+&"run": SubResource("Animation_4x4wj"),
+&"take_damage": SubResource("Animation_q4x8o"),
+&"take_damage_2": SubResource("Animation_g3f1h"),
+&"walk": SubResource("Animation_p66rv")
+}
+
+[node name="EnemyOrc" type="CharacterBody2D" groups=["Enemy", "GameEvents"]]
+script = ExtResource("1_embii")
+vida = 3
+min_speed = 30
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p66rv")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_4qb58")
+hframes = 8
+vframes = 6
+
+[node name="EnemyAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4x4wj")
+}
+
+[node name="DeadSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_38x27")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p66rv")
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4x4wj")
+volume_db = 4.0
+
+[node name="Raycast" type="Marker2D" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="Raycast"]
+
+[node name="CollisionAttack" type="CollisionPolygon2D" parent="Raycast/AttackArea"]
+position = Vector2(4, -5)
+polygon = PackedVector2Array(6, 12, 19, 12, 19, -7, 6, -7)
+
+[node name="IsPrecipice" type="RayCast2D" parent="Raycast"]
+position = Vector2(2, 6)
+target_position = Vector2(0, 15)
+
+[node name="IsEnemy" type="RayCast2D" parent="Raycast"]
+position = Vector2(14, 0)
+target_position = Vector2(75, 0)
+
+[node name="Attack" type="RayCast2D" parent="Raycast"]
+position = Vector2(5, 7)
+target_position = Vector2(0, 2)
+
+[connection signal="animation_finished" from="EnemyAnimation" to="." method="_on_enemy_animation_finished"]
+[connection signal="animation_started" from="EnemyAnimation" to="." method="_on_enemy_animation_started"]
+[connection signal="body_entered" from="Raycast/AttackArea" to="." method="_on_attack_area_body_entered"]
