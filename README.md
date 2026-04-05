@@ -10,13 +10,6 @@
   [![Genre](https://img.shields.io/badge/Genre-2D%20Platformer%20|%20Adventure-orange)](#)
   [![Play on Itch.io](https://img.shields.io/badge/Play%20on-Itch.io-%23fa5c5c?style=for-the-badge&logo=itchdotio&logoColor=white)](https://gabriel11730.itch.io/aventura-en-terra-luna)
 
-  <p align="center">
-    <a href="#sobre-el-juego">Sobre el Juego</a> •
-    <a href="#mecánicas-principales">Mecánicas</a> •
-    <a href="#tecnologías">Tecnologías</a> •
-    <a href="#instalación">Instalación</a> •
-    <a href="#créditos">Créditos</a>
-  </p>
 </div>
 
 ---
@@ -38,7 +31,7 @@
 
 ## 🛠️ Tecnologías
 Este proyecto ha sido desarrollado utilizando:
-- **Motor:** [Godot Engine 4.x](https://godotengine.org)
+- **Motor:** [Godot Engine 4.4.1](https://godotengine.org)
 - **Lenguaje:** GDScript
 - **Backend de Puntuaciones:** [SilentWolf](https://silentwolf.com) (Integración para Leaderboards y Auth)
 - **Plataformas compatibles:** Android y PC.
@@ -46,11 +39,12 @@ Este proyecto ha sido desarrollado utilizando:
 ## 🎮 Controles
 | Acción | Teclado | Mando |
 | :--- | :--- | :--- |
-| **Moverse** | Flechas / WASD | Stick Izquierdo |
-| **Saltar** | Espacio / Z | Botón A |
-| **Atacar** | X / J | Botón X |
-| **Dash** | C / K | Botón B |
+| **Moverse** | Flechas / ASD | Stick Izquierdo |
+| **Saltar** | Flecha Arriba / W | Botón A |
+| **Atacar** | z / J | Botón X |
+| **Dash** | x / K | Botón B |
 | **Pausa** | Esc | Start |
+| **Guardar** | G / B | Menu |
 
 ## 🚀 Instalación y Desarrollo
 Si deseas explorar el código o compilar el proyecto:
@@ -59,3 +53,8 @@ Si deseas explorar el código o compilar el proyecto:
    ```bash
    git clone [https://github.com/tu-usuario/aventura-en-terra-luna.git](https://github.com/tu-usuario/aventura-en-terra-luna.git)
    ```
+2. Abre el proyecto en Godot 4.4 y presiona **F5** o **Ejecutar Proyecto**
+
+## 👨‍💻 Autor
+
+[Gabriel Garcia LinkenIn](https://www.linkedin.com/in/jesus-gabriel-garcia-marquez-0132a9154/)
