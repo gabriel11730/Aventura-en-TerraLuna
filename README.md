@@ -8,7 +8,7 @@
   [![Godot Engine](https://img.shields.io/badge/Godot-4.x-%23478cbf?logo=godot-engine&logoColor=white)](https://godotengine.org)
   [![Platform](https://img.shields.io/badge/Platform-Android%20|%20PC-brightgreen)](#)
   [![Genre](https://img.shields.io/badge/Genre-2D%20Platformer%20|%20Adventure-orange)](#)
-  [![Play on Itch.io](https://img.shields.io/badge/Play%20on-Itch.io-%23fa5c5c?style=for-the-badge&logo=itchdotio&logoColor=white)](https://gabriel11730.itch.io/aventura-en-terra-luna)
+  [![Play on Itch.io](https://img.shields.io/badge/Play%20on-Itch.io-%23fa5c5c?logo=itchdotio&logoColor=white)](https://gabriel11730.itch.io/aventura-en-terra-luna)
 
 </div>
 
