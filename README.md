@@ -49,9 +49,9 @@ Este proyecto ha sido desarrollado utilizando:
 ## 🚀 Instalación y Desarrollo
 Si deseas explorar el código o compilar el proyecto:
 
-1. Clona este repositorio:
+1. Clona este repositorio (usa tu nombre de usuario):
    ```bash
-   git clone [https://github.com/tu-usuario/aventura-en-terra-luna.git](https://github.com/tu-usuario/aventura-en-terra-luna.git)
+   git clone https://github.com/tu-usuario/aventura-en-terra-luna.git
    ```
 2. Abre el proyecto en Godot 4.4 y presiona **F5** o **Ejecutar Proyecto**
 
