@@ -69,12 +69,15 @@ theme = SubResource("Theme_j1gah")
 [node name="ScoreItemContainer" type="VBoxContainer" parent="Board/ScrollContainer/HighScores"]
 layout_mode = 2
 
-[node name="CloseButtonContainer" type="CenterContainer" parent="Board"]
-layout_mode = 2
+[node name="CloseButtonContainer" type="CenterContainer" parent="."]
+offset_top = 480.0
+offset_right = 960.0
+offset_bottom = 533.0
+theme = ExtResource("2_5pbpo")
 
-[node name="CloseButton" parent="Board/CloseButtonContainer" instance=ExtResource("4")]
+[node name="CloseButton" parent="CloseButtonContainer" instance=ExtResource("4")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = " Close Leaderboard "
+text = " Back to Menu "
 
-[connection signal="pressed" from="Board/CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]

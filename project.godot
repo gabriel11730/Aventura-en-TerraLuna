@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Aventura_en_Terra_Luna_2"
+config/name="Aventura_en_Terra_Luna"
 config/version="1.0.0"
 run/main_scene="uid://ngm8hcg4id05"
 config/quit_on_go_back=false

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://kbn6uui6ev1y" path="res://Scenes/Obstacles_Enemies/EnemySpider.tscn" id="4_y3voj"]
 [ext_resource type="PackedScene" uid="uid://bitm2qvkskqow" path="res://Scenes/Obstacles_Enemies/EnemySnake.tscn" id="5_hhayy"]
 [ext_resource type="Texture2D" uid="uid://c7aqpfyscc5ro" path="res://Recursos/Backgrounds/Parallax/Autumn BG/GandalfHardcore Background layers_layer 2.png" id="5_yfuxc"]
-[ext_resource type="Texture2D" uid="uid://sfah2piajkg7" path="res://Recursos/Backgrounds/Parallax/Autumn BG/GandalfHardcore Background layers_layer 1.png" id="6_yr27d"]
+[ext_resource type="Texture2D" uid="uid://b7ghpyapattpp" path="res://Recursos/Backgrounds/Parallax/Autumn BG/GandalfHardcore Background layers_layer 1.png" id="6_yr27d"]
 [ext_resource type="Theme" uid="uid://bbila3ihxp2lr" path="res://Recursos/Global_Theme.tres" id="12_l34oa"]
 
 [node name="MiniGame1" type="Node2D"]

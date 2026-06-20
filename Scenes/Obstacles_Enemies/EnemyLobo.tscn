@@ -186,7 +186,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oq6os"]
-size = Vector2(13.375, 2)
+size = Vector2(13.0245, 2)
 
 [node name="EnemyLobo" type="CharacterBody2D" groups=["Enemy", "GameEvents"]]
 script = ExtResource("1_wucc1")
@@ -229,7 +229,7 @@ position = Vector2(19.5, 0)
 shape = SubResource("RectangleShape2D_oq6os")
 
 [node name="AttackBackCollision2" type="CollisionShape2D" parent="AttackBack"]
-position = Vector2(-19.337, 0)
+position = Vector2(-19.5122, 0)
 shape = SubResource("RectangleShape2D_oq6os")
 
 [node name="Raycast" type="Marker2D" parent="."]

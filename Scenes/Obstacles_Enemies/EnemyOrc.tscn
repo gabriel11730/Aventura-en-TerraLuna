@@ -214,7 +214,8 @@ volume_db = 4.0
 [node name="AttackArea" type="Area2D" parent="Raycast"]
 
 [node name="CollisionAttack" type="CollisionPolygon2D" parent="Raycast/AttackArea"]
-position = Vector2(4, -5)
+position = Vector2(4, -1.09901)
+scale = Vector2(1, 0.779605)
 polygon = PackedVector2Array(6, 12, 19, 12, 19, -7, 6, -7)
 
 [node name="IsPrecipice" type="RayCast2D" parent="Raycast"]
